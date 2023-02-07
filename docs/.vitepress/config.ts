@@ -50,6 +50,7 @@ export default defineConfig({
     description: "Vite & Vue powered static site generator.",
     lastUpdated: true,
     cleanUrls: true,
+    base: 'calendarium',
     head: [["meta", { name: "theme-color", content: PRIMARY_COLOR }]],
     themeConfig: {
         sidebar: {
