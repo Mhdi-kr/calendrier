@@ -26,5 +26,9 @@
         "@algolia/client-search"
       ]
     }
+  },
+  "dependencies": {
+    "@types/node": "^18.13.0",
+    "dayjs": "^1.11.7"
   }
 }
