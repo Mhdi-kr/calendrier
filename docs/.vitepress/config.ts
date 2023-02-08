@@ -46,11 +46,11 @@ function navigationFactory () {
 
 export default defineConfig({
     lang: "en-US",
-    title: "VitePress",
+    title: "Calendrier",
     description: "Vite & Vue powered static site generator.",
     lastUpdated: true,
     cleanUrls: true,
-    base: '/calendarium/',
+    base: '/calendrier/',
     head: [["meta", { name: "theme-color", content: PRIMARY_COLOR }]],
     themeConfig: {
         sidebar: {
@@ -58,7 +58,7 @@ export default defineConfig({
         },
         editLink: {
             pattern:
-                "https://github.com/Mhdi-kr/calendarium/edit/main/docs/:path",
+                "https://github.com/Mhdi-kr/calendrier/edit/main/docs/:path",
             text: "Edit this page on GitHub",
         },
         socialLinks: [
