@@ -11,12 +11,15 @@
     <div id="app">
       {{ message }}
       <calendrier>
-        <template #day="{date}"> {{ date }} </template>
+        <template #day="{date}">
+          {{ date }}
+        </template>
       </calendrier>
     </div>
   </body>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="calendrier.umd.cjs"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     const { createApp } = Vue
     const { Calendrier } = calendrier

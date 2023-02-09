@@ -17,7 +17,7 @@
   "packageManager": "pnpm@7.14.1",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
     "preview": "vite preview",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",

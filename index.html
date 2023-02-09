@@ -7,7 +7,16 @@
     <title>Vite + Vue + TS</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <div id="app">
+      <Calendrier>
+        <template #day="{date}">
+          {{date}}
+        </template>
+      </Calendrier>
+    </div>
+    <script type="module" src="/src/main.ts">
+      console.log(Calendrier)
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </body>
 </html>
