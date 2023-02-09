@@ -34,7 +34,9 @@ export class CustomDate {
     return [year, makeDoubleDigits(month), makeDoubleDigits(date)].join('-')
   }
   public startOf(primitive: 'day' | 'month' | 'year'): CustomDate {
-    return new CustomDate()
+    const year = this.date.getFullYear()
+    const month = this.date.getMonth()
+    return new CustomDate(new Date(year, month))
   }
   public daysInMonth(): number {
     const year = this.date.getFullYear()
@@ -48,7 +50,7 @@ export class CustomDate {
   private getMonthMillis(month?: number) {
     return
   }
-  private getYearMillis() {}
+  private getYearMillis() { }
 }
 
 const makeDoubleDigits = (num: number): string =>
