@@ -62,11 +62,11 @@ export default defineConfig({
             text: "Edit this page on GitHub",
         },
         socialLinks: [
-            { icon: "github", link: "https://github.com/vuejs/vitepress" },
+            { icon: "github", link: "https://github.com/Mhdi-kr/calendrier" },
         ],
         footer: {
             message: "Released under the MIT License.",
-            copyright: "Copyright © 2023-present Mahdi Karimi",
+            copyright: "Copyright © (2023 - Date.now()) Mahdi Karimi",
         },
     },
 });

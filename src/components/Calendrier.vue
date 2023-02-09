@@ -105,7 +105,7 @@ const weekDays = computed(() => [
 /* .calendrier {
     
 } */
-.calendarium__container {
+.calendrier__container {
     display: grid !important;
     grid-template-columns: repeat(7, 1fr);
     gap: 0.5rem;
