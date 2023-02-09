@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <calendrier :calendar="'gregory'" :date="new Date()" :week-start="'saturday'">
         <template #calendar="{date}">
             {{ date }}
@@ -11,4 +11,4 @@
 
 <script setup lang="ts">
 import calendrier from '@/components/calendrier.vue';
-</script>
+</script> -->

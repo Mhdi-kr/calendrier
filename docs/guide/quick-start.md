@@ -1,9 +1,9 @@
-
 # Quick Start
 
 1. Make sure you have node and npm installed
 
 2. Install the package in your project directory
+
 ```bash
 # npm
 npm install calendrier
@@ -25,16 +25,16 @@ app.use(Calendrier)
 
 ```vue
 <template>
-    <calendrier />
+  <calendrier />
 </template>
 
 <!-- Options API -->
 <script>
 import Calendrier from 'Calendrier'
 export default {
-    components: {
-        Calendrier
-    }
+  components: {
+    Calendrier,
+  },
 }
 </script>
 

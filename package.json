@@ -3,6 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/calendrier.umd.cjs",
+  "module": "./dist/calendrier.js",
+  "exports": {
+    ".": {
+      "import": "./dist/calendrier.js",
+      "require": "./dist/calendrier.umd.cjs"
+    }
+  },
   "packageManager": "pnpm@7.14.1",
   "scripts": {
     "dev": "vite",
