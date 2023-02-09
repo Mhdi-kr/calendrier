@@ -4,6 +4,7 @@ layout: home
 hero:
   name: Calendrier
   text: Functional style-less calendar for Vue 3
+  tagline: Less is more.
   image:
     src: /logo.png
     alt: VitePress
