@@ -17,11 +17,17 @@ pnpm add calendrier
 
 3. Global registry
 
+Make the component globally accessible
+
 ```typescript
-app.use(Calendrier)
+import Calendrier from 'Calendrier'
+...
+app.component('Calendrier', Calendrier)
 ```
 
 4. Dynamic loading (recommended)
+
+Import the component where you need it
 
 ```vue
 <template>
