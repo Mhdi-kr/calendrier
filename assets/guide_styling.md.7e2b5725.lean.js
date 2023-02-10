@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,d as l}from"./app.5dcb9a9b.js";const d=JSON.parse('{"title":"Styling","description":"","frontmatter":{},"headers":[],"relativePath":"guide/styling.md","lastUpdated":1676069072000}'),p={name:"guide/styling.md"},e=l("",4),o=[e];function t(c,r,i,y,D,C){return n(),a("div",null,o)}const A=s(p,[["render",t]]);export{d as __pageData,A as default};
