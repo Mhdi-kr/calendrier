@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <div id="app">
-      {{ message }}
-      <calendrier>
-        <template #day="{date}">
-          {{ date }}
-        </template>
-      </calendrier>
-    </div>
-  </body>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script src="calendrier.umd.cjs"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    const { createApp } = Vue
-    const { Calendrier } = calendrier
-    createApp({
-      components: {
-        Calendrier,
-      },
-      data() {
-        return {
-          message: 'Hello Vue!',
-        }
-      },
-    }).mount('#app')
-  </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app" class="pt-10">
+    <calendrier class="w-96 mx-auto bg-violet-900 p-4 text-sky-50 rounded shadow-lg">
+      <template #calendar="{month, year, day}">
+        {{month}}
+      </template>
+      <template #week-day="{title}">
+        <div class="text-center uppercase">
+          {{ title }}
+        </div>
+      </template>
+      <template #day="{date}">
+        <div
+          class="flex items-center justify-center h-10 bg-violet-500 hover:bg-violet-400 transition-all cursor-pointer rounded">
+          {{ date.getDate() }}
+        </div>
+      </template>
+    </calendrier>
+  </div>
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="calendrier.umd.cjs"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  const { createApp } = Vue
+  const { Calendrier } = calendrier
+  createApp({
+    components: {
+      Calendrier,
+    },
+    data() {
+      return {
+        message: 'Hello Vue!',
+      }
+    },
+  }).mount('#app')
+</script>
+
 </html>

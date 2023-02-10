@@ -1,7 +1,7 @@
 <template>
   <section class="calendrier">
     <slot
-      name="calendrier"
+      name="calendar"
       :year="computedState.year"
       :month="computedState.month"
       :day="computedState.day"
@@ -12,8 +12,9 @@
       :handleNextMonth="handleNextMonth"
     />
     <div class="calendrier__container">
+
       <div v-for="dayName in weekDays">
-        {{ dayName }}
+        <slot name="week-day" :title="dayName" />
       </div>
       <div v-for="offset in prevMonthOffset" />
       <time
