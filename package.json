@@ -1,6 +1,5 @@
 {
   "name": "calendrier",
-  "private": true,
   "version": "0.0.0",
   "description": "Feature-rich, style-less, purely functional and statically typed calendar component for Vue 3",
   "type": "module",
