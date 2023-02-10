@@ -1,3 +1,7 @@
+import { createApp } from 'vue'
+import App from './App.vue'
 import Calendrier from '@/components/Calendrier.vue'
 
-export { Calendrier }
+createApp(App).mount('#app')
+
+// export { Calendrier }

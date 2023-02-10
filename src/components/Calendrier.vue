@@ -12,19 +12,16 @@
       :handleNextMonth="handleNextMonth"
     />
     <div class="calendrier__container">
-
       <div v-for="dayName in weekDays">
         <slot name="week-day" :title="dayName" />
       </div>
       <div v-for="offset in prevMonthOffset" />
-      <time
-        v-for="day in daysInCurrentMonth"
-        :date="monthStartDay.clone().add({ days: day }).format('YYYY-MM-DD')"
-      >
+      <time v-for="date in currentMonth" :date="date.formatted">
         <slot
           name="day"
-          :is-weekend="false"
-          :date="monthStartDay.clone().add({ days: day }).date"
+          :date="date.object"
+          :is-weekend="date.isWeekend"
+          :is-today="date.isToday"
         ></slot>
       </time>
     </div>
@@ -81,7 +78,17 @@ const handleNextMonth = () => {
   monthStartDay.value.add({ months: +1 })
 }
 
-const isWeekend = () => {}
+const isWeekend = (date: Date, weekend: 'saturday' | 'sunday'): boolean => {
+  const weekendIndex =
+    weekend === 'saturday' ? 6 : weekend === 'sunday' ? 0 : -1
+  return date.getDay() === weekendIndex
+}
+
+const isToday = (date: Date): boolean => {
+  const today = new Date()
+
+  return false
+}
 
 watch(
   () => monthStartDay,
@@ -95,13 +102,24 @@ const prevMonthOffset = computed(() => 5)
 
 const daysInCurrentMonth = computed(() => monthStartDay.value.daysInMonth())
 
-const weekDays = computed(() => [
-  'sat',
-  'sun',
-  'mon',
-  'tue',
-  'wed',
-  'thu',
-  'fri',
-])
+const currentMonth = computed(() =>
+  new Array(monthStartDay.value.daysInMonth())
+    .fill(0)
+    .map((_, index) => index + 1)
+    .map((day) => monthStartDay.value.clone().add({ days: day }))
+    .map((customDate) => ({
+      object: customDate.date,
+      formatted: customDate.format('YYYY-MM-DD'),
+      isWeekend: isWeekend(customDate.date, props.weekStart),
+      isToday: isToday(customDate.date),
+    }))
+)
+
+const weekDays = computed(() =>
+  props.weekStart === 'saturday'
+    ? ['sat', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri']
+    : props.weekStart === 'sunday'
+    ? ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+    : ['sat', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri']
+)
 </script>
