@@ -59,6 +59,7 @@ const props = withDefaults(defineProps<CalendrierProps>(), {
 
 const emits = defineEmits<CalendrierEmits>()
 
+const today = computed(() => new CustomDate())
 const monthStartDay = ref(new CustomDate().startOf('month'))
 
 const computedState = computed(() => ({
@@ -71,11 +72,13 @@ const computedState = computed(() => ({
 }))
 
 const handlePrevMonth = () => {
-  monthStartDay.value.add({ months: -1 })
+  console.log('handle')
+  monthStartDay.value = monthStartDay.value.clone().add('month', -1)
 }
 
 const handleNextMonth = () => {
-  monthStartDay.value.add({ months: +1 })
+  console.log('handle')
+  monthStartDay.value = monthStartDay.value.clone().add('month', 1)
 }
 
 const isWeekend = (date: Date, weekend: 'saturday' | 'sunday'): boolean => {
@@ -86,7 +89,6 @@ const isWeekend = (date: Date, weekend: 'saturday' | 'sunday'): boolean => {
 
 const isToday = (date: Date): boolean => {
   const today = new Date()
-
   return false
 }
 
@@ -98,15 +100,15 @@ watch(
   }
 )
 
-const prevMonthOffset = computed(() => 5)
+const prevMonthOffset = computed(() => monthStartDay.value.date.getDay())
 
 const daysInCurrentMonth = computed(() => monthStartDay.value.daysInMonth())
 
 const currentMonth = computed(() =>
   new Array(monthStartDay.value.daysInMonth())
     .fill(0)
-    .map((_, index) => index + 1)
-    .map((day) => monthStartDay.value.clone().add({ days: day }))
+    .map((_, index) => index)
+    .map((day) => monthStartDay.value.clone().add('day', day))
     .map((customDate) => ({
       object: customDate.date,
       formatted: customDate.format('YYYY-MM-DD'),

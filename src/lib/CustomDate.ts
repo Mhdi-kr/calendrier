@@ -2,7 +2,7 @@ type AddParams = { days?: number; months?: number; years?: number }
 
 interface ICustomDate {
   date: Date
-  add: (params: AddParams) => ICustomDate
+  add: (what: 'day' | 'month' | 'year', value: number) => ICustomDate
   startOf: (primitive: 'day' | 'month' | 'year') => ICustomDate
 }
 
@@ -23,9 +23,18 @@ export class CustomDate {
   public clone(): CustomDate {
     return new CustomDate(this.date)
   }
-  public add(params: AddParams): CustomDate {
-    const date = new Date(this.date.valueOf() + this.getDayMillis(params.days))
-    return new CustomDate(date)
+  public add(what: 'day' | 'month' | 'year', value: number): CustomDate {
+    if (what === 'day') {
+      return new CustomDate(
+        new Date(this.date.valueOf() + this.getDayMillis(value))
+      )
+    } else if (what === 'month') {
+      return new CustomDate(
+        new Date(this.date.getFullYear(), this.date.getMonth() + value)
+      )
+    } else {
+      return new CustomDate(this.date)
+    }
   }
   public format(pattern: 'YYYY-MM-DD'): string {
     const year = this.date.getFullYear()
