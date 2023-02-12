@@ -20,10 +20,6 @@ function sidebarFactory() {
           link: '/guide/examples.md',
         },
         {
-          text: 'Styling',
-          link: '/guide/styling.md',
-        },
-        {
           text: 'Internationalization',
           link: '/guide/internationalization.md',
         },
